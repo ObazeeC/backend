@@ -4,3 +4,71 @@
 *:after {
   box-sizing: border-box;
 }
+
+  
+header,
+nav,
+main,
+footer{
+max-width: 450px;
+margin:0 auto;
+}
+/* header */
+#top-header{
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  gap:1.75rem;
+  align-items: center;
+  padding:1rem;
+}
+.siteName a{
+text-decoration: none;
+padding:1rem;
+font-size: 40px;
+font-weight: bold;
+color: black; 
+padding-left: 0;
+}
+#tools a{
+  text-decoration: none;
+  font-weight: bold;
+ color: black; 
+}
+#tools a:hover{
+ text-decoration: underline;
+}
+
+
+/* navigation bar */
+nav{
+  background-color: black;
+  padding: 1rem;
+}
+
+.nav-list {
+list-style: none;
+margin:0;
+padding:0;
+display: flex;
+justify-content: center;
+gap:1.5rem;
+}
+
+.nav-list li{
+  font-weight: 600; font-size: 1rem;
+}
+.nav-list a{
+  color:white;
+  text-decoration: none;
+}
+.nav-list a:hover
+{
+  color:rgb(154, 176, 194);
+}
+
+/* upgrade section */
+.upgrade div{
+  background-color: aquamarine;
+  width: 150px;
+}
+
