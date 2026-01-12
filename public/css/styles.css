@@ -4,7 +4,12 @@
 *:after {
   box-sizing: border-box;
 }
-
+p{
+  font-family:Arial, Helvetica, sans-serif;
+}
+ h1, h2{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+ }
   
 header,
 nav,
@@ -80,12 +85,12 @@ gap:1.5rem;
   position:absolute;
   background-color: rgba(250, 249, 249, 0.3);
   top:1.9rem;
-  left: .2rem;
+  left: .8rem;
 }
 .hero-para p{
   margin:0;
   padding:2px;
-  color: rgb(247, 6, 186);
+  color: rgb(247, 74, 6);
   font-weight: bold;
 }
 .hero-btn{
