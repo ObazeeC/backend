@@ -235,3 +235,13 @@ VALUES (
         'White',
         5
     );
+
+-- query 4 syntax REPLACE FUNCTION : REPLACE(source, from_text, to_text);
+UPDATE inventory
+SET inv_description = REPLACE(inv_description, 'small interiors', 'a huge interior')
+WHERE inv_id=10;
+
+-- query 6: update all records in the inventory table to add /vehicles
+UPDATE inventory
+SET inv_image = REPLACE(inv_image, '/images', '/images/vehicles'), 
+	inv_thumbnail = REPLACE(inv_thumbnail, '/images', '/images/vehicles');
