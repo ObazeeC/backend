@@ -48,6 +48,7 @@ padding-left: 0;
 nav{
   background-color: black;
   padding: 1rem;
+  color:white;
 }
 
 .nav-list {
@@ -68,7 +69,9 @@ gap:1.5rem;
 }
 .nav-list a:hover
 {
-  color:rgb(154, 176, 194);
+  background-color: white;
+  color:black;
+  padding:.2rem;
 }
 
 
@@ -76,17 +79,16 @@ gap:1.5rem;
 /* hero section */
 
 .hero{
-  margin: 2rem 0 2rem;
   position: relative;
-  
-
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .hero-para{
   position:absolute;
   background-color: rgba(250, 249, 249, 0.3);
   top:1.9rem;
-  left: .8rem;
+  left: .2rem;
   
 }
 .hero-para p{
@@ -179,5 +181,12 @@ footer{
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding:1rem;
+}
+.hero-para{
+  position:absolute;
+  background-color: rgba(250, 249, 249, 0.3);
+  top:1.9rem;
+  left: -6rem;
+  
 }
 }
