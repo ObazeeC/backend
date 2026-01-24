@@ -163,7 +163,7 @@ gap:1.5rem;
 
 
 #inv-display img{
-width:340px;
+width:96%;
 padding:.5rem;
 height: auto;
 display: block;
@@ -173,7 +173,7 @@ margin:0 auto;
   border: 1px solid rgba(14, 129, 245, 0.5);
   margin-top: 1rem;
    background-color: rgba(231, 237, 243, 0.9);
-   width: 370px;
+   width: 410px;
    list-style-type: none;
 }
 
@@ -200,7 +200,7 @@ margin:0 auto;
 
   display: grid;
   grid-template-columns: 1fr;
-  width: 370px;
+  width: 410px;
 }
 .vehicle-detail h2{
 text-align: center;
