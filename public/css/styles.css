@@ -200,7 +200,8 @@ margin:0 auto;
 
   display: grid;
   grid-template-columns: 1fr;
-  width: 410px;
+  /*width: 410px;*/
+  width:100%;
 }
 .vehicle-detail h2{
 text-align: center;
@@ -212,7 +213,7 @@ text-align: center;
 }
 .vehicle-info{
   background-color: rgba(231, 237, 243, 0.9);
-    width: 98%;
+    width: 100%;
     justify-self: center;
 }
 .vehicle-info p{
@@ -311,6 +312,7 @@ margin:0 auto;
 .vehicle-info{
   margin-top: 1rem;
   border: 1px solid rgba(14, 129, 245, 0.5);
+  margin: 0 auto;
 }
 
 
