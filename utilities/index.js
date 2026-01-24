@@ -39,7 +39,7 @@ Util.buildClassificationGrid = async function(data){
       +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
       +' on CSE Motors" /></a>'
       grid += '<div class="namePrice">'
-      grid += '<hr />'
+      //grid += '<hr />'
       grid += '<h2>'
       grid += '<a href="../../inv/detail/' + vehicle.inv_id +'" title="View ' 
       + vehicle.inv_make + ' ' + vehicle.inv_model + ' details">' 
@@ -67,15 +67,16 @@ Util.buildDetailHTML = function(vehicle){
   let detail =` 
 <section class="vehicle-detail">
    <div class="vehicle-image">
-   <img src="${vehicle.inv_image}"
+      <img src="${vehicle.inv_image}"
       alt="Image of ${vehicle.inv_make} ${vehicle.inv_model}">
   </div>
 
   <div class="vehicle-info">
   <h2>${vehicle.inv_year} ${vehicle.inv_make} ${vehicle.inv_model}</h2>
+  <div class=price-color>
   <p class="price"><strong>Price:</strong> $${price}</p>
   <p class="miles"><strong>Miles:</strong> ${miles}miles</p>
-  <p> <strong>Color:</strong> ${vehicle.inv_color} </p>
+  <p class="color"> <strong>Color:</strong> ${vehicle.inv_color} </p> </div>
   <p class="description"> <strong>Description: </strong>${vehicle.inv_description}</p>
   </div>
 </section>

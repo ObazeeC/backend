@@ -152,6 +152,86 @@ gap:1.5rem;
 .upgrade-btn{
   justify-content: center;
 }
+/* ***************
+ *  classification view 
+ *  *************** */
+#inv-display{
+  display: grid;
+  grid-template-columns: 1fr;
+ 
+}
+
+
+#inv-display img{
+width:340px;
+padding:.5rem;
+height: auto;
+display: block;
+margin:0 auto;
+}
+#inv-display li{
+  border: 1px solid rgba(14, 129, 245, 0.5);
+  margin-top: 1rem;
+   background-color: rgba(231, 237, 243, 0.9);
+   width: 370px;
+   list-style-type: none;
+}
+
+.namePrice{
+  margin-bottom:1rem;
+  background-color: rgb(145, 197, 241);
+  justify-self: center;
+  width: 250px;
+  margin-top: 0;
+  text-align: center;
+}
+.namePrice a{
+ 
+  font-size: large;
+}
+.namePrice span{
+  background-color: rgb(83, 252, 6);
+  padding: .3rem;
+}
+/* ***************
+ *  detail  view page
+ *  *************** */
+.vehicle-detail{
+
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 370px;
+}
+.vehicle-detail h2{
+text-align: center;
+  
+}
+.vehicle-image img{
+  max-width: 100%;
+  height: auto;
+}
+.vehicle-info{
+  background-color: rgba(231, 237, 243, 0.9);
+    width: 98%;
+    justify-self: center;
+}
+.vehicle-info p{
+  margin:3px;
+  text-align: center;
+}
+.price-color{
+  background-color: rgb(83, 252, 6);
+  width: 200px;
+  justify-self: center;
+  margin-bottom: 1rem;
+  padding:.2rem;
+  
+}
+.description{
+  padding:1rem;
+  
+}
+
 
 /* footer */
 footer{
@@ -161,7 +241,6 @@ footer{
 }
 
 /* large view */
-/*  large view not working yet *******/
 @media screen and (min-width:800px){
 
   header,
@@ -189,4 +268,50 @@ footer{
   left: -6rem;
   
 }
+
+/* classification view */
+#inv-display{
+ 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+}
+
+.namePrice a{
+  text-decoration: none;
+  font-size: large;
+}
+.namePrice a:hover{
+  text-decoration:underline;
+ 
+}
+#inv-display img:hover{
+width:350px;
+
+}
+
+/* ***************
+ *  detail  view page
+ *  *************** */
+.vehicle-detail{
+
+  display: grid;
+  grid-template-columns: 1fr;
+  width:800px;
+}
+.vehicle-image{
+  width: 80%;
+  padding:.3rem;
+  margin: 0 auto;
+}
+.vehicle-image img{
+display:block;
+margin:0 auto;
+}
+.vehicle-info{
+  margin-top: 1rem;
+  border: 1px solid rgba(14, 129, 245, 0.5);
+}
+
+
 }
