@@ -20,8 +20,8 @@
         name="account_password"
         required
         minlength="12"
-         <%#pattern="^(?=.*[A-Z])(?=\d)(?=.*[!@#$%^&*]).{12,}$"
-         not working right%>
+         pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{12,}$"
+         
        title="Password must be at least 12 character and include 1 uppercase letter, 1 number, and 1 special character">
 
 

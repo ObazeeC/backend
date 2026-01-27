@@ -256,6 +256,7 @@ text-align: center;
   border-radius: .4rem;
   width: 80%;
   border:none;
+  font-size: large;
 }
 .class-form input, label{
   margin: .2rem 0 1.5rem 3rem;
