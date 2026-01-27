@@ -1,0 +1,22 @@
+const express = require("express")
+const router = new express.Router()
+const utilities = require("../utilities")
+const accountController = require("../controllers/accountController")
+
+/* ******************************
+* deliver the login view 
+* ***************************** */
+router.get("/login", utilities.handleErrors(accountController.buildLogin))
+
+/* ************************************
+ * Deliver the register view 
+ * ********************************** */
+router.get("/register", utilities.handleErrors(accountController.buildRegister))
+
+
+/* ************************************
+ * Process registration
+ * ********************************** */
+router.post('/register', utilities.handleErrors(accountController.registerAccount))
+
+module.exports = router;

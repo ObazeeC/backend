@@ -10,6 +10,10 @@ p{
  h1, h2{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
  }
+ h1{
+  text-align: center;
+  
+ }
   
 header,
 nav,
@@ -230,16 +234,80 @@ text-align: center;
 }
 .description{
   padding:1rem;
-  
+}
+#messages{
+  color: red;
+  font-style: oblique;
+}
+/************************
+* Account and register form 
+* ************* ********* */
+.class-form{
+  border:2px solid rgba(162, 241, 57, 0.9);
+  background-color: rgb(91, 158, 218);
+  max-width: 500px;
+  padding:5px;
+  margin: 0 auto;
+  border-radius: .5rem;
+}
+.class-form input{
+  display: block;
+  padding:1rem;
+  border-radius: .4rem;
+  width: 80%;
+  border:none;
+}
+.class-form input, label{
+  margin: .2rem 0 1.5rem 3rem;
+}
+.class-form button{
+ width: 100px;
+ border-radius: 1rem;
+ padding:9px;
+ display: block;
+ margin: .5rem auto;
+ border: none
+}
+.class-form label, p{
+  font-weight: bold;
+  font-size: large;
 }
 
+.class-form p {
+  text-align: center;
+  margin-top: 3rem;
+}
+.class-form a{
+color:white;
+}
+.class-form a:hover, button:hover{
+color:white;
+background-color: black;
+padding:.5rem;
+}
+#login_form{
+  padding:1rem;
+}
 
+/************************
+* regist form
+* ************* ********* */
+.password-rule p{
+font-style: italic;
+text-align: center;
+font-size: small;
+color:rgb(66, 2, 2);
+}
+#register_form{
+  padding:1rem;
+}
 /* footer */
 footer{
 
   text-align: center;
   
 }
+
 
 /* large view */
 @media screen and (min-width:800px){
