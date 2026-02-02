@@ -72,6 +72,7 @@ Util.buildDetailHTML = function(vehicle){
   </div>
 
   <div class="vehicle-info">
+
   <h2>${vehicle.inv_year} ${vehicle.inv_make} ${vehicle.inv_model}</h2>
   <div class=price-color>
   <p class="price"><strong>Price:</strong> $${price}</p>

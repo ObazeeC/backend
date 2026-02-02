@@ -1,17 +1,28 @@
+
 <title><%= title %> </title>
 <h1> <%= title %> </h1>
 
+
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
 <%- messages() %>
   <div class="class-form"> 
-  <form action="/account/register" method="post" id="register_form">
+    <span class="req-input">All fields are required </span>
+    <form action="/account/register" method="post" id="register_form">
     <label for="account_firstname">First name: </label>
-    <input type="text" id="account_firstname" name="account_firstname" required>
+    <input type="text" id="account_firstname" name="account_firstname" required value="<%= locals.account_firstname %>">
 
     <label for="account_lastname">Last name: </label>
-    <input type="text" id="account_lastname" name="account_lastname" required>
+    <input type="text" id="account_lastname" name="account_lastname" required value="<%= locals.account_lastname %>">
 
      <label for="account_email">Email: </label>
-    <input type="email" id="account_email" name="account_email" required>
+    <input type="email" id="account_email" name="account_email" required value="<%= locals.account_email %>">
 
     <label for="account_password">Password: </label>
     <input 
@@ -20,7 +31,7 @@
         name="account_password"
         required
         minlength="12"
-         pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{12,}$"
+        pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
          
        title="Password must be at least 12 character and include 1 uppercase letter, 1 number, and 1 special character">
 
