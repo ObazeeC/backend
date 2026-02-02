@@ -3,6 +3,7 @@ const router = new express.Router()
 const utilities = require("../utilities")
 const accountController = require("../controllers/accountController")
 const regValidate = require("../utilities/account-validation")
+const baseController = require("../controllers/baseController")
 
 /* ******************************
 * deliver the login view 
@@ -25,6 +26,9 @@ router.post('/register',
 
 
 //
+router.get("/trigger-error", baseController.triggerError)
+router.get("/trigger-error", utilities.handleErrors(baseController.triggerError))
+
 // process the login attempt
 
 router.post(

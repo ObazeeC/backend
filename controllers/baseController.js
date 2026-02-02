@@ -6,5 +6,7 @@ baseController.buildHome = async function(req, res) {
     req.flash("notice", "This is a flash message.")
     res.render("index", {title: "Home", nav})
 }
-
+baseController.triggerError = (req, res, next) => {
+    next(new Error("Intenttional server error for testing"))
+}
 module.exports = baseController
