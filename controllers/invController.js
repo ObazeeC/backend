@@ -36,4 +36,15 @@ invCont.buildDetailView = async function(req, res, next){
   })
 }
 
+/* *****************************************
+* Build the management view 
+* **************************************** */
+invCont.buildManagement = async function(req, res, next){
+  let nav = await utilities.getNav()
+  res.render("inventory/management", {
+    title: "Inventory Management ",
+    nav
+  })
+}
+
 module.exports = invCont
