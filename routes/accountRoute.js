@@ -17,8 +17,8 @@ router.get("/login", utilities.handleErrors(accountController.buildLogin))
  * ********************************** */
 router.get("/register", utilities.handleErrors(accountController.buildRegister))
 
-router.get("/", invCont.buildManagement)
 
+router.get("/", utilities.handleErrors())
 /* ************************************
  * Process incoming registration
  * ********************************** */
