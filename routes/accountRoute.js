@@ -4,6 +4,8 @@ const utilities = require("../utilities")
 const accountController = require("../controllers/accountController")
 const regValidate = require("../utilities/account-validation")
 const baseController = require("../controllers/baseController")
+const invCont = require("../controllers/invController")
+
 
 /* ******************************
 * deliver the login view 
@@ -15,6 +17,7 @@ router.get("/login", utilities.handleErrors(accountController.buildLogin))
  * ********************************** */
 router.get("/register", utilities.handleErrors(accountController.buildRegister))
 
+router.get("/", invCont.buildManagement)
 
 /* ************************************
  * Process incoming registration
@@ -27,9 +30,11 @@ router.post('/register',
 
 //
 router.get("/trigger-error", baseController.triggerError)
-router.get("/trigger-error", utilities.handleErrors(baseController.triggerError))
+//router.get("/trigger-error", utilities.handleErrors(baseController.triggerError))
 
 // process the login attempt
+
+
 
 router.post(
     "/login",
