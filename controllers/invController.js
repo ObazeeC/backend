@@ -83,4 +83,80 @@ invCont.addClassification = async function(req, res, next){
     })
   }
 }
+
+/* *****************************************
+* Build the add Inventory view
+* **************************************** */
+
+invCont.buildAddInventory = async function (req, res, next){
+  let nav = await utilities.getNav()
+  let classificationList = await utilities.buildClassificationList()
+  
+  res.render("inventory/add-inventory",{
+    title: "Add Inventory",
+    nav,
+    classificationList,
+    errors: null,
+    inv_make:"",
+    inv_model:"",
+    inv_year: "",
+    inv_description: "",
+    inv_image:"/images/vehicles/no-image.png",
+    inv_thumbnail: "/images/vehicles/no-image-tn.png",
+    inv_price:"",
+    inv_miles:"",
+    inv_color:""
+
+  })
+}
+
+
+/* *****************************************
+* add the new vehicle to the database
+* **************************************** */
+invCont.addInventory = async function(req, res, next){
+  let nav = await utilities.getNav()
+  let classificationList = await utilities.buildClassificationList(req.body.classification_id)
+const {
+  classification_id,
+  inv_make,
+  inv_model,
+  inv_year,
+  inv_description,
+  inv_image,
+  inv_thumbnail,
+  inv_price,
+  inv_miles,
+  inv_color,
+} = req.body
+
+const result = await invModel.addInventory(
+  classification_id,
+  inv_make,
+  inv_model,
+  inv_year,
+  inv_description,
+  inv_image,
+  inv_thumbnail,
+  inv_price,
+  inv_miles,
+  inv_color
+)
+
+if(result){
+  req.flash("notice", "New vehicle added sucessfully. ")
+  res.redirect("/inv/")
+}else{
+  req.flash("notice", "Failed to add vehicle")
+  res.status(500).render("inventory/add-inventory",{
+    title: "Add Inventory",
+    nav,
+    classificationList,
+    errors:null,
+    ...req.body
+  })
+}
+ 
+}
+
 module.exports = invCont
