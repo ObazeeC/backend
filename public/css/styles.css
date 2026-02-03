@@ -330,7 +330,7 @@ color:rgb(66, 2, 2);
   margin: 0 auto;
   border-radius: .5rem;
 }
-#addInventoryForm input{
+#addInventoryForm input, select, textarea{
   display: block;
   padding:1rem;
   border-radius: .4rem;
