@@ -78,7 +78,7 @@ async function addInventory(
     INSERT INTO inventory(
       classification_id,inv_make,inv_model,inv_year,
       inv_description, inv_image, inv_thumbnail, inv_price, inv_miles,inv_color)
-    VALUES ($1,$2,$3,$4,$5,$6,$6,$7,$8,$9,$10)
+    VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)
     RETURNING *`
 
     return await pool.query(sql,[

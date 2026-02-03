@@ -144,7 +144,7 @@ const result = await invModel.addInventory(
 )
 
 if(result){
-  req.flash("notice", "New vehicle added sucessfully. ")
+  req.flash("notice", "New vehicle added successfully. ")
   res.redirect("/inv/")
 }else{
   req.flash("notice", "Failed to add vehicle")
