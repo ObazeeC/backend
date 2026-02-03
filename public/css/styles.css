@@ -320,9 +320,9 @@ color:rgb(66, 2, 2);
 }
 
 /************************
-* Add inventory form, 
+* Add inventory form 
 * ************* ********* */
-.addInventory{
+.addInventory,.addClassification{
   border:2px solid rgba(162, 241, 57, 0.9);
   background-color: rgb(91, 158, 218);
   max-width: 500px;
@@ -338,7 +338,7 @@ color:rgb(66, 2, 2);
   border:none;
   font-size: large;
 }
-#addInventoryForm input, label{
+#addInventoryForm input, label, textarea, select{
   margin: .2rem 0 1.5rem 3rem;
 }
 #addInventoryForm button{
@@ -380,11 +380,49 @@ border:2px solid greenyellow;
 #login_form{
   padding:1rem;
 }
+.invRequired, .clasiRequired {
+  padding: 1rem;
+  font-variant: small-caps;
+  font-style: italic;
+ 
+}
+/************************
+* Add classification
+* ************* ********* */
+#classification-form input{
+  display: block;
+  padding:1rem;
+  border-radius: .4rem;
+  width: 80%;
+  border:none;
+  font-size: large;
+}
+#classification-form input, label{
+  margin: .2rem 0 1.5rem 3rem;
+}
+#classification-form button{
+ width: 100px;
+ border-radius: 1rem;
+ padding:9px;
+ display: block;
+ margin: .5rem auto;
+ border: none;
+ font-weight: bold;
+}
+#classification-form label, p{
+  font-weight: bold;
+  font-size: large;
+}
+
+.classification-form p {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+
 /* footer */
 footer{
-
   text-align: center;
-  
 }
 
 
