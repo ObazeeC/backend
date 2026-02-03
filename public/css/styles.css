@@ -318,6 +318,68 @@ color:rgb(66, 2, 2);
   font-style: italic;
  
 }
+
+/************************
+* Add inventory form, 
+* ************* ********* */
+.addInventory{
+  border:2px solid rgba(162, 241, 57, 0.9);
+  background-color: rgb(91, 158, 218);
+  max-width: 500px;
+  padding:5px;
+  margin: 0 auto;
+  border-radius: .5rem;
+}
+#addInventoryForm input{
+  display: block;
+  padding:1rem;
+  border-radius: .4rem;
+  width: 80%;
+  border:none;
+  font-size: large;
+}
+#addInventoryForm input, label{
+  margin: .2rem 0 1.5rem 3rem;
+}
+#addInventoryForm button{
+ width: 100px;
+ border-radius: 1rem;
+ padding:9px;
+ display: block;
+ margin: .5rem auto;
+ border: none;
+ font-weight: bold;
+}
+#addInventoryForm label, p{
+  font-weight: bold;
+  font-size: large;
+}
+
+.class-form p {
+  text-align: center;
+  margin-top: 3rem;
+}
+.class-form a{
+color:white;
+}
+#addInventoryForm a:hover, button:hover{
+color:white;
+background-color: black;
+padding:.5rem;
+}
+
+#addInventoryForm input:required:invalid,
+input:focus:valid{
+border: 2px solid red;
+}
+
+ #addInventoryForm input:required:valid,
+input:focus:valid{
+border:2px solid greenyellow;
+}
+#login_form{
+  padding:1rem;
+}
 /* footer */
 footer{
 
