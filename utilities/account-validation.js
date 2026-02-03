@@ -129,5 +129,34 @@ validate.checkLogData = async (req, res, next) =>{
     next();
 }
 
+/* ********************************
+ *  classification validation
+ * ****************************** */
+validate.classificationRules = () =>{
+    return[
+        body("classification_name")
+        .trim()
+        .isAlphanumeric()
+        .withMessage("Classification name must contain only letters and numbers. ")
+        .notEmpty()
+        .withMessage("Classification name is required. ")
+    ]
+}
 
+/* ********************************
+ *  check classification name against rule
+ * ****************************** */
+validate.checkClassificationData = async (req, res, next) => {
+    const errors = validationResult(req)
+    if(!errors.isEmpty()){
+        let nav = await utilities.getNav()
+        return res.render("inventory/add-classification",{
+            title: "Add Classification",
+            nav,
+            errors,
+            classification_name: req.body.classification_name
+        })
+    }
+    next()
+}
 module.exports = validate
