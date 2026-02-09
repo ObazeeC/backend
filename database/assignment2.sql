@@ -33,6 +33,11 @@ SET inv_image = REPLACE(inv_image, '/images', '/images/vehicles'),
 	inv_thumbnail = REPLACE(inv_thumbnail, '/images', '/images/vehicles');
 
 
+-- update account type of Happy and manager 
+UPDATE account
+SET account_type = 'Admin'
+WHERE account_firstname = 'Manager';
+
 
 	https://youtu.be/MYl_fCeUhvU
 	

@@ -17,6 +17,7 @@ const session = require("express-session")
 const pool = require('./database/')
 const account = require('./routes/accountRoute')
 const bodyParser = require("body-parser")
+const cookieParser = require("cookie-parser")
 /* ***********************
  * View Engine and Templates
  *************************/
@@ -48,7 +49,9 @@ app.use(function(req, res, next){
   next()
 })
 
-
+app.use(cookieParser())
+app.use(utilities.checkJWTToken)
+//app.use(utilities.checkJWTToken)
 /* ***********************
  * Routes
  *************************/
@@ -79,6 +82,7 @@ app.use(async (err, req, res, next) => {
     nav
   })
 })
+
 
 /* ***********************
  * Local Server Information
