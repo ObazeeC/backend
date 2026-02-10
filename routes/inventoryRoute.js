@@ -3,6 +3,8 @@ const express = require("express")
 const router = new express.Router()
 const invController = require("../controllers/invController")
 const invValidate = require("../utilities/account-validation")
+const utilities = require("../utilities/")
+
 
 
 
@@ -29,5 +31,39 @@ router.post(
     invValidate.checkInventoryData,
     invController.addInventory
 )
+// a new route that works with URL in the JavaScript 
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+
+// Ruote to build the edit inventory view
+router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryView))
+
+
+
+
+// Add new inventory route
+
+router.post("/add",
+    invValidate.newInventoryRules(),
+    invValidate.checkInventoryData,
+    utilities.handleErrors(invController.addInventory)
+)
+
+// check update middleware
+//Route to handle incoming request to update iventory
+router.post("/update",
+    invValidate.newInventoryRules(),
+    invValidate.checkUpdateData,
+    utilities.handleErrors(invController.updateInventory)
+)
+
+/* ************************************
+ * Delete route
+ * ********************************** */
+router.get("/delete/:inv_id", utilities.handleErrors(invController.buildDeleteView))
+
+ /* ************************************
+ * The delete post ruote that will a controller function to carry out the delete process
+ * ********************************** */
+router.post("/delete", utilities.handleErrors(invController.deleteInventoryItem))
 
 module.exports = router;

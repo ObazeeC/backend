@@ -213,6 +213,59 @@ validate.inventoryRules = () => {
 }
 
 /* ********************************
+ *  New  inventory validation
+ * ****************************** */
+validate.newInventoryRules = () => {
+    return [
+        body("inv_make")
+        .trim()
+        .notEmpty()
+        .withMessage("Make is required."),
+
+         body("inv_model")
+        .trim()
+        .notEmpty()
+        .withMessage("Model is required."),
+
+         body("inv_year")
+        .isInt({min:1900, max:2099})
+        .notEmpty()
+        .withMessage("Enter a valid year"),
+
+         body("inv_description")
+        .trim()
+        .notEmpty()
+        .withMessage("Desccription is required "),
+
+         body("inv_image")
+        .trim()
+        .notEmpty()
+        .withMessage("Image path is required."),
+
+         body("inv_thumbnail")
+        .trim()
+        .notEmpty()
+        .withMessage("Thumbnail path is required "),
+
+         body("inv_price")
+        .isFloat({min:0})
+        .notEmpty()
+        .withMessage("price must be a positive number"),
+
+         body("inv_miles")
+        .isInt({min: 0})
+        .notEmpty()
+        .withMessage("Miles must a positive number only"),
+
+         body("inv_color")
+        .trim()
+        .notEmpty()
+        .withMessage("Color is required"),
+    ]
+}
+
+
+/* ********************************
  *  check inventory data against defined rules
  * ****************************** */
 validate.checkInventoryData = async (req, res, next) => {
@@ -225,6 +278,32 @@ validate.checkInventoryData = async (req, res, next) => {
             title: "Add Inventory", 
             nav,
             classificationList,
+            errors,
+            ...req.body
+        })
+    }
+    next()
+}
+
+/* ********************************
+ *  process update inventory data, return errors to the edit view
+ * ****************************** */
+validate.checkUpdateData = async (req, res, next) => {
+    const errors = validationResult(req)
+    if(!errors.isEmpty()){
+        let nav = await utilities.getNav()
+        
+        // build the classification dropdown with the selected value
+        let classificationSelect = await utilities.buildClassificationList(req.body.classification_id)
+
+        //keep inventory ID from the form
+       let inv_id = req.body.inv_id
+
+        return res.render("inventory/edit-inventory", {
+            title: `Edit ${req.body.inv_make} ${req.body.inv_model}`, 
+            nav,
+            classificationSelect,
+            inv_id,
             errors,
             ...req.body
         })

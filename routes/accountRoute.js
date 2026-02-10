@@ -29,7 +29,6 @@ router.get("/management",
 
  
 
-
 /* ************************************
  * Process incoming registration
  * ********************************** */
