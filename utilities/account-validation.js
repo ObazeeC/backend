@@ -310,4 +310,79 @@ validate.checkUpdateData = async (req, res, next) => {
     }
     next()
 }
+
+/* ********************************
+ * Account update rules
+ * ****************************** */
+validate.updateAccountRules = () => {
+    return [
+        body("account_firstname")
+        .trim()
+        .isLength({min:1}),
+
+        body("account_lastname")
+        .trim()
+        .isLength({min:1}),
+
+        body("account_email")
+        .trim()
+        .isEmail()
+        .custom(async (email, {req}) => {
+            const existing = await accountModel.checkExistingEmail(email)
+            if(existing && existing.account_id != req.body.account_id){
+                throw new Error("Email aready exist. Choose another ")
+            }
+        })
+    ]
+}
+
+/* ********************************
+ * Account update password rules
+ * ****************************** */
+validate.updatePasswordRules = () => {
+    return [
+        body("account_password")
+        .trim()
+        .isStrongPassword({
+            minLength:12,
+            minLowercase:1,
+            minUppercase:1,
+            minNumbers:1,
+            minSymbols:1
+        })
+    ]
+}
+
+/* ********************************
+ * Check account update data
+ * ****************************** */
+validate.checkUpdateAccountData = async(req, res, next) => {
+    const errors = validationResult(req)
+    if(!errors.isEmpty()){
+        let nav = await utilities.getNav()
+        return res.render("account/update-account",{
+            title:"update Account Information ",
+            nav,
+            errors,
+            accountData: req.body
+
+        })
+    }
+    next()
+} 
+
+validate.checkUpdatePasswordData = async (req, res, next) => {
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav()
+    return res.render("account/update-account", {
+      title: "Update Account Information",
+      nav,
+      errors,
+      accountData: req.body
+    })
+  }
+  next()
+}
+
 module.exports = validate

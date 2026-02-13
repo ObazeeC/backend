@@ -322,7 +322,7 @@ color:rgb(66, 2, 2);
 /************************
 * Add inventory form 
 * ************* ********* */
-.addInventory,.addClassification{
+.addInventory,.addClassification {
   border:2px solid rgba(162, 241, 57, 0.9);
   background-color: rgb(91, 158, 218);
   max-width: 500px;
@@ -330,6 +330,52 @@ color:rgb(66, 2, 2);
   margin: 0 auto;
   border-radius: .5rem;
 }
+/*  update form */
+.update-form label{
+  display: block;
+}
+
+
+/* Inputs */ 
+.update-form input[type="text"],
+ .update-form input[type="email"], 
+ .update-form input[type="password"] 
+  { padding: 0.6rem; 
+  border: 1px solid #ccc;
+   border-radius: 6px; 
+   
+   font-size: 1rem; width: 80%;
+  }
+
+    /* Small note under password */
+     .update-form span p { 
+      font-size: 0.9rem; 
+      color: #666; margin: 0; }
+
+      .update-form{
+        max-width: 600px;
+        border: 1px solid grey;
+        padding:.5rem;
+      }
+.update-form label, input, button{
+  margin-left: 2rem;
+  margin-bottom: 0rem;
+}
+.update-form label{
+  margin-top: 1.5rem;
+}
+
+.update-form span p{
+  text-align:  center;
+  color:red;
+  margin:.5rem;
+}
+.update-form button{
+  padding:1rem;
+  margin-top:.4rem;
+  width: 50%;
+}
+
 #addInventoryForm input, select, textarea{
   display: block;
   padding:1rem;

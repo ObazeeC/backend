@@ -41,4 +41,72 @@ async function getAccountByEmail(account_email){
         return new Error("No match email found")
     }
 }
-module.exports = {registerAccount, checkExistingEmail, getAccountByEmail};
+/* *****************************
+* Get account by id
+* ***************************** */
+async function getAccountById(account_id) {
+  try {
+    const sql = `
+      SELECT account_id, account_firstname, account_lastname, account_email
+      FROM account
+      WHERE account_id = $1
+    `
+    const result = await pool.query(sql, [account_id])
+    return result.rows[0]
+  } catch (error) {
+    throw error
+  }
+}
+
+
+/* *****************************
+* The update account 
+* ***************************** */
+async function updateAccount(account_firstname, account_lastname, account_email, account_id){
+    try{
+        const sql = `UPDATE account
+                     SET account_firstname = $1,
+                         account_lastname = $2,
+                         account_email = $3,
+                     WHERE account_id = $4
+                     RETURNING * `
+        const data = await pool.query(sql, [account_firstname, account_lastname, account_email, account_id])
+        return data. rows[0]
+    }catch ( error){
+        console.error("Update Account Error:", error)
+        return null 
+    }
+}
+
+/* *****************************
+* The update password
+* ***************************** */
+async function updatePassword(account_password, account_id){
+    try{
+        const sql = `UPDATE account
+                     SET account_password = $1
+                     WHERE account_id = $2
+                     RETURNING * `
+        const data = await pool.query(sql, [account_password, account_id])
+        return data.rows[0]
+    }catch (error) {
+        console.error("Update Password Error: ", error)
+        return null
+    }
+}
+
+/* *****************************
+* Check if Email is already existing 
+* ***************************** */
+async function checkExistingEmail(account_email){
+    try{
+        const sql = " SELECT account_id FROM account WHERE account_email = $1"
+        const data = await pool.query(sql,[account_email])
+        return data.rows[0]
+    }catch (error){
+        console.error("Check Existing Email Error:", error)
+        return null
+    }
+}
+
+module.exports = {registerAccount, checkExistingEmail, getAccountByEmail, getAccountById, updateAccount, updatePassword, checkExistingEmail};

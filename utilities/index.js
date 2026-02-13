@@ -149,6 +149,38 @@ Util.checkLogin = ( req, res, next) => {
   }
 }
 
+/* ****************************************
+ *  Middleware to Check JWT and account type authorization
+ *  Only allow Employee or Admin
+ * *************************************** */
+Util.checkEmployeeOrAdmin = (req, res, next) => {
+  const token = req.cookies.jwt
+  
+  // No token -> not logged in
+  if(!token){
+    req.flash("notice", "Please log in to access this page. ")
+    return res.redirect("/account/login")
+  }
+  try{
+    //verify token
+    const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
+
+    //check account type
+    if(decoded.account_type  === "Employee" || decoded.account_type === "Admin"){
+      res.locals.accountData = decoded
+      return next()
+    }
+    //logged in but not authorized
+    req.flash("notice", "You do not have the permission to access this page")
+    return res.redirect("/account/login")
+  }catch (error){
+    // token invalid or experied
+    req.flash("notice", "Your session has expired. Please log in again")
+    return res.redirect("/account/login")
+  }
+  }
+
+
 /* ************************************************
 * Middleware For Handling Errors
 * Wrap other function in this for General Error Handling

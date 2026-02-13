@@ -28,6 +28,35 @@ router.get("/management",
     utilities.handleErrors(accountController.buildAccountManagement))
 
  
+/* ************************************
+ * Deliver the account update ruote for the view
+ * ********************************** */
+router.get(
+    "/update/:account_id",
+    utilities.checkLogin,
+    utilities.handleErrors(accountController.buildUpdateAccount)
+)
+
+/* ************************************
+ * Post ruote update info
+ * ********************************** */
+router.post(
+    "/update",
+    regValidate.updateAccountRules(),
+    regValidate.checkUpdateAccountData,
+    utilities.handleErrors(accountController.updateAccount)
+
+)
+
+/* ************************************
+ * Post ruote update password
+ * ********************************** */
+router.post(
+  "/update-password",
+  regValidate.updatePasswordRules,
+  regValidate.checkUpdatePasswordData,
+  utilities.handleErrors(accountController.updatePassword)
+)
 
 /* ************************************
  * Process incoming registration
@@ -36,8 +65,6 @@ router.post('/register',
        regValidate.registrationRules(),
        regValidate.checkRegData,
        utilities.handleErrors(accountController.registerAccount))
-
-    
 
 
 //
@@ -56,6 +83,9 @@ router.post(
     utilities.handleErrors(accountController.accountLogin)
 
 )
+
+//Add the logout process
+router.get("/logout", utilities.handleErrors(accountController.accountLogout))
 
 
 module.exports = router;
