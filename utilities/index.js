@@ -83,6 +83,7 @@ Util.buildDetailHTML = function(vehicle){
   <p class="description"> <strong>Description: </strong>${vehicle.inv_description}</p>
   </div>
 </section>
+
   `
   return detail
 } 
